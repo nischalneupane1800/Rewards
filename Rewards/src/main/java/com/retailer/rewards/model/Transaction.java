@@ -1,4 +1,4 @@
-package com.example.rewards.model;
+package com.retailer.rewards.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

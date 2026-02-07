@@ -1,6 +1,6 @@
-package com.example.rewards.repository;
+package com.retailer.rewards.repository;
 
-import com.example.rewards.model.Transaction;
+import com.retailer.rewards.model.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,7 +1,7 @@
-package com.example.rewards.service;
+package com.retailer.rewards.service;
 
-import com.example.rewards.model.Transaction;
-import com.example.rewards.repository.TransactionRepository;
+import com.retailer.rewards.model.Transaction;
+import com.retailer.rewards.repository.TransactionRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

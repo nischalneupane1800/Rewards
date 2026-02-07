@@ -1,6 +1,6 @@
-package com.example.rewards.repository;
+package com.retailer.rewards.repository;
 
-import com.example.rewards.model.Customer;
+import com.retailer.rewards.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CustomerRepository

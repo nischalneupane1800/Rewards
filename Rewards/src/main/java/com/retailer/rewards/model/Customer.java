@@ -1,4 +1,4 @@
-package com.example.rewards.model;
+package com.retailer.rewards.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -12,7 +12,6 @@ public class Customer {
     private String name;
 
     protected Customer() {
-        // required by JPA
     }
 
     public Customer(String id, String name) {

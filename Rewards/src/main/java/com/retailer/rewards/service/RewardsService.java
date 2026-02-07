@@ -1,11 +1,12 @@
-package com.example.rewards.service;
+package com.retailer.rewards.service;
 
-import com.example.rewards.model.CustomerRewards;
-import com.example.rewards.model.MonthlyReward;
-import com.example.rewards.model.RewardSummary;
-import com.example.rewards.model.Transaction;
-import com.example.rewards.repository.CustomerRepository;
-import com.example.rewards.repository.TransactionRepository;
+import com.retailer.rewards.dto.CustomerRewards;
+import com.retailer.rewards.dto.MonthlyReward;
+import com.retailer.rewards.dto.RewardSummary;
+import com.retailer.rewards.exception.CustomerNotFoundException;
+import com.retailer.rewards.model.Transaction;
+import com.retailer.rewards.repository.CustomerRepository;
+import com.retailer.rewards.repository.TransactionRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.Clock;
@@ -33,6 +34,10 @@ public class RewardsService {
     public RewardSummary getRewardsForCustomer(String customerId) {
         List<Transaction> txns =
                 transactionRepo.findByCustomerId(customerId);
+
+        if (txns.isEmpty()) {
+            throw new CustomerNotFoundException(customerId);
+        }
 
         return summarizeLast3Months(txns, currentYearMonth());
     }

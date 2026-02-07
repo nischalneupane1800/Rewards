@@ -1,7 +1,7 @@
-package com.example.rewards.controller;
+package com.retailer.rewards.controller;
 
-import com.example.rewards.model.Transaction;
-import com.example.rewards.service.TransactionService;
+import com.retailer.rewards.model.Transaction;
+import com.retailer.rewards.service.TransactionService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

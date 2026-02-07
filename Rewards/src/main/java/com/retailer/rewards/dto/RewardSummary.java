@@ -1,4 +1,4 @@
-package com.example.rewards.model;
+package com.retailer.rewards.dto;
 
 import java.util.List;
 

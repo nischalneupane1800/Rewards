@@ -1,8 +1,8 @@
-package com.example.rewards.controller;
+package com.retailer.rewards.controller;
 
-import com.example.rewards.model.CustomerRewards;
-import com.example.rewards.model.RewardSummary;
-import com.example.rewards.service.RewardsService;
+import com.retailer.rewards.dto.CustomerRewards;
+import com.retailer.rewards.dto.RewardSummary;
+import com.retailer.rewards.service.RewardsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
