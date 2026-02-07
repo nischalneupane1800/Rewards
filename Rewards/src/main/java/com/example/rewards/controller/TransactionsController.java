@@ -1,30 +1,33 @@
 package com.example.rewards.controller;
 
 import com.example.rewards.model.Transaction;
-import com.example.rewards.repository.DataRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Flux;
+import com.example.rewards.service.TransactionService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@RequestMapping("/transactions")
 public class TransactionsController {
 
-    private final DataRepository repo;
+    private final TransactionService transactionService;
 
-    public TransactionsController(DataRepository repo) {
-        this.repo = repo;
+    public TransactionsController(TransactionService transactionService) {
+        this.transactionService = transactionService;
     }
 
-    // All transactions
-    @GetMapping("/transactions")
-    public Flux<Transaction> transactions() {
-        return repo.transactions();
+    @GetMapping
+    public List<Transaction> transactions() {
+        return transactionService.getAllTransactions();
     }
 
-    // Transactions for one customer by id
-    @GetMapping("/transactions/{customerId}")
-    public Flux<Transaction> transactionsForCustomer(@PathVariable String customerId) {
-        return repo.transactionsForCustomer(customerId);
+    @GetMapping("/{customerId}")
+    public List<Transaction> transactionsForCustomer(
+            @PathVariable String customerId
+    ) {
+        if (customerId == null || customerId.isBlank()) {
+            throw new IllegalArgumentException("customerId must be provided");
+        }
+        return transactionService.getTransactionsForCustomer(customerId);
     }
 }
